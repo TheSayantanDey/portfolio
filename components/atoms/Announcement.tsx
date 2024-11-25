@@ -1,19 +1,18 @@
-import Link from 'next/link'
+import Link from "next/link";
 import React, {
   type ComponentProps,
-  type FC,
   forwardRef,
   type PropsWithChildren,
-} from 'react'
-import tw, { css, styled } from 'twin.macro'
+} from "react";
+import tw from "twin.macro";
 
-type Color = 'primary' | 'indigo'
+type Color = "primary" | "indigo";
 
 type Props = ComponentProps<typeof Link> &
   PropsWithChildren<{
-    href: string
-    color: Color
-  }>
+    href: string;
+    color: Color;
+  }>;
 
 const Announcement = forwardRef<HTMLAnchorElement, Props>(
   ({ children, color, ...props }, ref) => {
@@ -21,9 +20,9 @@ const Announcement = forwardRef<HTMLAnchorElement, Props>(
       <Link
         css={[
           tw`relative flex flex-row space-x-3 overflow-hidden`,
-          color === 'primary' &&
+          color === "primary" &&
             tw`bg-primary-600 text-gray-100 dark:bg-primary-300 dark:text-gray-900`,
-          color === 'indigo' &&
+          color === "indigo" &&
             tw`bg-indigo-600 text-gray-100 dark:bg-indigo-300 dark:text-gray-900`,
         ]}
         {...props}
@@ -41,9 +40,9 @@ const Announcement = forwardRef<HTMLAnchorElement, Props>(
           {children}
         </div>
       </Link>
-    )
+    );
   },
-)
-Announcement.displayName = 'Announcement'
+);
+Announcement.displayName = "Announcement";
 
-export default Announcement
+export default Announcement;

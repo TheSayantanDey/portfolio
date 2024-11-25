@@ -1,13 +1,15 @@
 // Utils
 // Types
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps, NextPage } from "next";
 // Components
-import Head from 'next/head'
-import { serialize } from 'next-mdx-remote/serialize'
-import { getPlaiceholder } from 'plaiceholder'
-import tw, { css } from 'twin.macro'
+import Head from "next/head";
+import { serialize } from "next-mdx-remote/serialize";
+import { getPlaiceholder } from "plaiceholder";
+import tw, { css } from "twin.macro";
 
-import type { TimelineItem } from '../components/molecules/timeline/TimelineItem'
+import Skills from "@/components/organisms/Home/HomeSkills";
+
+import type { TimelineItem } from "../components/molecules/timeline/TimelineItem";
 import {
   HomeBlog,
   HomeIntro,
@@ -15,29 +17,28 @@ import {
   HomeSocials,
   HomeTimeline,
   // HomeLife,
-} from '../components/organisms/Home'
-import TheContactBanner from '../components/organisms/TheContactBanner'
-import allProjects from '../content/projects'
+} from "../components/organisms/Home";
+import TheContactBanner from "../components/organisms/TheContactBanner";
+import allProjects from "../content/projects";
 // Content
-import { homeSocials } from '../content/socials'
-import { timeline as allTimeline } from '../content/timeline'
-import type { Post } from '../types/hashnode'
-import type { Project } from '../types/project'
-import type { SocialAccount } from '../types/social-account'
-import type { TimelineItem as ITimelineItem } from '../types/timeline'
-import { getUserPosts } from '../utils/hashnode'
-import Skills from '@/components/organisms/Home/HomeSkills'
+import { homeSocials } from "../content/socials";
+import { timeline as allTimeline } from "../content/timeline";
+import type { Post } from "../types/hashnode";
+import type { Project } from "../types/project";
+import type { SocialAccount } from "../types/social-account";
+import type { TimelineItem as ITimelineItem } from "../types/timeline";
+import { getUserPosts } from "../utils/hashnode";
 
 interface Props {
-  projects: Project[]
-  posts: Post[]
-  socials: SocialAccount[]
-  timeline: TimelineItem[]
+  projects: Project[];
+  posts: Post[];
+  socials: SocialAccount[];
+  timeline: TimelineItem[];
 }
 
 const sectionStyles = css`
   ${tw`my-19 first-of-type:mt-0 mx-auto max-w-2xl`}
-`
+`;
 
 const Home: NextPage<Props> = ({ projects, timeline, socials, posts }) => {
   return (
@@ -71,10 +72,8 @@ const Home: NextPage<Props> = ({ projects, timeline, socials, posts }) => {
         projects={projects.slice(0, 3)}
       />
 
-
       {/* TODO  */}
       <Skills css={[sectionStyles]} />
-
 
       <HomeBlog id="blog" css={[sectionStyles]} posts={posts} />
       <HomeTimeline id="timeline" css={[sectionStyles]} timeline={timeline} />
@@ -104,23 +103,23 @@ const Home: NextPage<Props> = ({ projects, timeline, socials, posts }) => {
 
       <TheContactBanner tw="my-19" />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = allProjects.filter(
     (p) => p.display === undefined || p.display === true,
-  )
+  );
 
-  const posts = (await getUserPosts('sayantandey'))
+  const posts = (await getUserPosts("sayantandey"))
     .slice(0, 3)
     .map(async (post) => {
       const plaiceholdrer =
         post.coverImage && post.coverImage.url
           ? await getPlaiceholder(post.coverImage.url)
-          : null
+          : null;
 
       return {
         ...post,
@@ -129,8 +128,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
           base64: plaiceholdrer?.base64 ?? null,
           blurhash: plaiceholdrer?.blurhash ?? null,
         },
-      }
-    })
+      };
+    });
 
   const timeline = allTimeline
     .filter((t) => t.homepage)
@@ -138,13 +137,16 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       const _t: TimelineItem = Object.assign<
         ITimelineItem,
         Partial<TimelineItem>
-      >(t, {})
+      >(t, {});
 
-      t.description && (_t.description = await serialize(t.description))
-      _t.title = await serialize(t.title)
+      if (t.description) {
+        _t.description = await serialize(t.description);
+      }
 
-      return _t
-    })
+      _t.title = await serialize(t.title);
+
+      return _t;
+    });
 
   return {
     props: {
@@ -153,5 +155,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       timeline: await Promise.all(timeline),
       socials: homeSocials,
     },
-  }
-}
+  };
+};

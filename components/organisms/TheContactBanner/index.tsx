@@ -1,9 +1,9 @@
-import 'twin.macro'
+import "twin.macro";
 
-import { Icon } from '@iconify/react'
-import React, { type FC } from 'react'
+import { Icon } from "@iconify/react";
+import React, { type FC } from "react";
 
-const TheContactBanner: FC<JSX.IntrinsicElements['section']> = (props) => (
+const TheContactBanner: FC<JSX.IntrinsicElements["section"]> = (props) => (
   <section
     tw="
       mx-auto w-full max-w-4xl rounded-2xl border border-indigo-800 bg-indigo-600 px-12 py-10
@@ -14,7 +14,10 @@ const TheContactBanner: FC<JSX.IntrinsicElements['section']> = (props) => (
   >
     <h2 tw="text-3xl/[150%] font-bold md:text-5xl">Feel free to reach out!</h2>
     <p tw="my-2 text-gray-200 md:text-lg dark:text-gray-800">
-    I'm always open to exploring exciting opportunities and connecting with like-minded individuals. Whether you have a project in mind, a question to ask, or just want to chat, drop me a message. I'll do my best to respond promptly!
+      I&apos;m always open to exploring exciting opportunities and connecting
+      with like-minded individuals. Whether you have a project in mind, a
+      question to ask, or just want to chat, drop me a message. I&apos;ll do my
+      best to respond promptly!
     </p>
     <div tw="mt-6 space-y-4 md:space-x-4 md:space-y-0">
       <a
@@ -32,7 +35,7 @@ const TheContactBanner: FC<JSX.IntrinsicElements['section']> = (props) => (
         "
       >
         Download Résumé
-        <Icon icon={'heroicons-outline:arrow-down-tray'} tw="ml-4 size-6" />
+        <Icon icon={"heroicons-outline:arrow-down-tray"} tw="ml-4 size-6" />
       </a>
       <a
         href="https://t.me/TheSayantanDey"
@@ -66,6 +69,6 @@ const TheContactBanner: FC<JSX.IntrinsicElements['section']> = (props) => (
       </a>
     </div>
   </section>
-)
+);
 
-export default TheContactBanner
+export default TheContactBanner;

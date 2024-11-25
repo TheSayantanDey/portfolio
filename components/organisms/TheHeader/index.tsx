@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import React from 'react'
-import tw, { styled } from 'twin.macro'
+import Link from "next/link";
+import React from "react";
+import tw, { styled } from "twin.macro";
 
-import Tag from '../../atoms/Tag'
+import Tag from "../../atoms/Tag";
 
 const Header = styled.header([
   tw`sticky top-0 z-30 filter backdrop-filter backdrop-blur-lg`,
   tw`bg-white saturate-150 bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80 dark:saturate-100`,
-])
+]);
 
 const TheHeader: React.FC = () => (
   <Header>
@@ -22,6 +22,6 @@ const TheHeader: React.FC = () => (
       </Link>
     </div>
   </Header>
-)
+);
 
-export default TheHeader
+export default TheHeader;

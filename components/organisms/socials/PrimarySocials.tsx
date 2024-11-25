@@ -1,13 +1,13 @@
-import { Icon } from '@iconify/react'
-import type { ComponentProps, FC } from 'react'
-import tw, { styled } from 'twin.macro'
+import { Icon } from "@iconify/react";
+import type { ComponentProps, FC } from "react";
+import tw, { styled } from "twin.macro";
 
-import { primarySocials as socials } from '../../../content/socials'
+import { primarySocials as socials } from "../../../content/socials";
 
-const SocialsWrapper = styled.ul([tw`flex flex-row space-x-4`])
+const SocialsWrapper = styled.ul([tw`flex flex-row space-x-4`]);
 
 // Inherit props
-type Props = ComponentProps<typeof SocialsWrapper>
+type Props = ComponentProps<typeof SocialsWrapper>;
 
 export const PrimarySocials: FC<Props> = (props) => (
   <SocialsWrapper {...props}>
@@ -34,4 +34,4 @@ export const PrimarySocials: FC<Props> = (props) => (
       </li>
     ))}
   </SocialsWrapper>
-)
+);

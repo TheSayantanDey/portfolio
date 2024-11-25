@@ -1,14 +1,14 @@
-import 'twin.macro'
+import "twin.macro";
 
-import { Icon } from '@iconify/react'
-import Link from 'next/link'
-import React, { type FC, type PropsWithChildren } from 'react'
+import { Icon } from "@iconify/react";
+import Link from "next/link";
+import React, { type FC, type PropsWithChildren } from "react";
 
-type Url = string
+type Url = string;
 
 interface Props {
-  title?: string
-  href?: Url
+  title?: string;
+  href?: Url;
 }
 
 const SectionHeader: FC<PropsWithChildren<Props>> = ({
@@ -21,7 +21,7 @@ const SectionHeader: FC<PropsWithChildren<Props>> = ({
     {href && (
       <Link
         href={href}
-        target={href.startsWith('http') ? '_blank' : '_self'}
+        target={href.startsWith("http") ? "_blank" : "_self"}
         tw="size-6 rounded text-gray-500 ring-offset-2 hover:text-gray-600 focus:outline-none focus:ring"
         aria-label={title}
       >
@@ -29,6 +29,6 @@ const SectionHeader: FC<PropsWithChildren<Props>> = ({
       </Link>
     )}
   </div>
-)
+);
 
-export default SectionHeader
+export default SectionHeader;

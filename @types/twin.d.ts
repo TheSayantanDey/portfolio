@@ -1,25 +1,25 @@
-import 'twin.macro'
-import { css as cssImport } from '@emotion/react'
-import { CSSInterpolation } from '@emotion/serialize'
-import styledImport from '@emotion/styled'
+import "twin.macro";
+import { css as cssImport } from "@emotion/react";
+import { CSSInterpolation } from "@emotion/serialize";
+import styledImport from "@emotion/styled";
 
-declare module 'twin.macro' {
+declare module "twin.macro" {
   // The styled and css imports
-  const styled: typeof styledImport
-  const css: typeof cssImport
+  const styled: typeof styledImport;
+  const css: typeof cssImport;
 }
 
-declare module 'react' {
+declare module "react" {
   // The css prop
   interface HTMLAttributes<T> extends DOMAttributes<T> {
-    css?: CSSInterpolation
+    css?: CSSInterpolation;
   }
   // The inline svg css prop
   interface SVGProps<T> extends SVGProps<SVGSVGElement> {
-    css?: CSSInterpolation
+    css?: CSSInterpolation;
   }
 
   interface Attributes {
-    css?: CSSInterpolation
+    css?: CSSInterpolation;
   }
 }

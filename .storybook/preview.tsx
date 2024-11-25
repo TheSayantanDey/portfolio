@@ -1,10 +1,10 @@
-import { Preview } from '@storybook/react'
-import GlobalStyles from './../components/GlobalStyles'
-import { theme } from 'twin.macro'
+import { Preview } from "@storybook/react";
+import GlobalStyles from "./../components/GlobalStyles";
+import { theme } from "twin.macro";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -12,12 +12,12 @@ const preview: Preview = {
       },
       expanded: true,
     },
-    layout: 'centered',
+    layout: "centered",
     backgrounds: {
-      default: 'primary-white',
+      default: "primary-white",
       values: [
         {
-          name: 'primary-white',
+          name: "primary-white",
           value: `linear-gradient(180deg, ${theme`colors.primary`}, ${theme`colors.white`})`,
         },
       ],
@@ -31,6 +31,6 @@ const preview: Preview = {
       </>
     ),
   ],
-}
+};
 
-export default preview
+export default preview;

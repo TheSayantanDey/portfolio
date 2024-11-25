@@ -1,11 +1,11 @@
-import { Icon } from '@iconify/react'
-import * as mdx from '@mdx-js/react/lib'
-import clsx from 'clsx'
+import { Icon } from "@iconify/react";
+import * as mdx from "@mdx-js/react/lib";
+import clsx from "clsx";
 import {
   MDXRemote,
   type MDXRemoteProps,
   MDXRemoteSerializeResult,
-} from 'next-mdx-remote'
+} from "next-mdx-remote";
 import React, {
   type FC,
   type PropsWithChildren,
@@ -13,38 +13,41 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from 'react'
-import tw, { styled } from 'twin.macro'
+} from "react";
+import tw, { styled } from "twin.macro";
 
-import type { TimelineItem as TTimelineItem } from '../../../../types/timeline'
-import Tag from '../../../atoms/Tag'
+import type { TimelineItem as TTimelineItem } from "../../../../types/timeline";
+import Tag from "../../../atoms/Tag";
 
 // eslint-disable-next-line no-undef
 export type TimelineItem = Modify<
   TTimelineItem,
   {
-    title: MDXRemoteSerializeResult
-    description?: MDXRemoteSerializeResult
+    title: MDXRemoteSerializeResult;
+    description?: MDXRemoteSerializeResult;
   }
->
+>;
 
 interface Props {
-  item: TimelineItem
+  item: TimelineItem;
 }
 
 const ReadMore: FC<PropsWithChildren<{ className?: string }>> = ({
   children,
   className,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const [height, setHeight] = useState<number>()
+  const [height, setHeight] = useState<number>();
 
-  useEffect(() => setHeight(contentRef.current?.clientHeight), [contentRef])
+  useEffect(() => setHeight(contentRef.current?.clientHeight), [contentRef]);
 
-  const [isOpen, setOpen] = useState<boolean>()
-  const shouldCover = useMemo<boolean>(() => !!height && height > 100, [height])
+  const [isOpen, setOpen] = useState<boolean>();
+  const shouldCover = useMemo<boolean>(
+    () => !!height && height > 100,
+    [height],
+  );
 
   return (
     <div
@@ -73,23 +76,23 @@ const ReadMore: FC<PropsWithChildren<{ className?: string }>> = ({
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 const IconWrapper = styled.div<{ $color: string }>(({ $color }) => [
   tw`p-1.5 rounded-full text-white dark:text-gray-900`,
-  $color === 'green' && tw`bg-green-600 dark:bg-green-400`,
-  $color === 'gray' && tw`bg-gray-600 dark:bg-gray-400`,
-  $color === 'pink' && tw`bg-pink-600 dark:bg-pink-400`,
-  $color === 'blue' && tw`bg-blue-600 dark:bg-blue-400`,
-  $color === 'yellow' && tw`bg-yellow-600 dark:bg-yellow-400`,
-  $color === 'red' && tw`bg-red-600 dark:bg-red-400`,
-])
+  $color === "green" && tw`bg-green-600 dark:bg-green-400`,
+  $color === "gray" && tw`bg-gray-600 dark:bg-gray-400`,
+  $color === "pink" && tw`bg-pink-600 dark:bg-pink-400`,
+  $color === "blue" && tw`bg-blue-600 dark:bg-blue-400`,
+  $color === "yellow" && tw`bg-yellow-600 dark:bg-yellow-400`,
+  $color === "red" && tw`bg-red-600 dark:bg-red-400`,
+]);
 
-type Anchor = NonNullable<mdx.Components['a']>
-type Paragraph = NonNullable<mdx.Components['p']>
+type Anchor = NonNullable<mdx.Components["a"]>;
+type Paragraph = NonNullable<mdx.Components["p"]>;
 
-const MDXParagraphComponent: Paragraph = ({ children }) => <>{children}</>
+const MDXParagraphComponent: Paragraph = ({ children }) => <>{children}</>;
 const MDXAnchorComponent: Anchor = ({ children, ...props }) => (
   <a
     {...props}
@@ -99,7 +102,7 @@ const MDXAnchorComponent: Anchor = ({ children, ...props }) => (
   >
     {children}
   </a>
-)
+);
 
 // eslint-disable-next-line no-redeclare
 const TimelineItem: FC<Props> = ({ item, ...props }) => (
@@ -112,7 +115,7 @@ const TimelineItem: FC<Props> = ({ item, ...props }) => (
     {...props}
   >
     <div tw="relative">
-      <IconWrapper $color={item.color || 'gray'}>
+      <IconWrapper $color={item.color || "gray"}>
         <Icon icon={item.icon} tw="block size-5" />
       </IconWrapper>
     </div>
@@ -155,6 +158,6 @@ const TimelineItem: FC<Props> = ({ item, ...props }) => (
       )}
     </div>
   </article>
-)
+);
 
-export default TimelineItem
+export default TimelineItem;

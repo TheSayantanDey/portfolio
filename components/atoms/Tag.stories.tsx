@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react";
 
-import Tag from './Tag'
+import Tag from "./Tag";
 
 export default {
-  title: 'Atoms/Tag',
+  title: "Atoms/Tag",
   component: Tag,
-} as Meta<typeof Tag>
+} as Meta<typeof Tag>;
 
-type Story = StoryObj<typeof Tag>
+type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
   args: {
-    children: 'Tag',
+    children: "Tag",
   },
-}
+};

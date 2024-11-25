@@ -1,20 +1,20 @@
 // Utils
 // Types
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps, NextPage } from "next";
 // Components
-import Head from 'next/head'
-import { serialize } from 'next-mdx-remote/serialize'
+import Head from "next/head";
+import { serialize } from "next-mdx-remote/serialize";
 
-import PageHeader from '../components/molecules/PageHeader'
-import type { TimelineItem as IITimelineItem } from '../components/molecules/timeline/TimelineItem'
-import TimelineItem from '../components/molecules/timeline/TimelineItem'
-import TheContactBanner from '../components/organisms/TheContactBanner'
+import PageHeader from "../components/molecules/PageHeader";
+import type { TimelineItem as IITimelineItem } from "../components/molecules/timeline/TimelineItem";
+import TimelineItem from "../components/molecules/timeline/TimelineItem";
+import TheContactBanner from "../components/organisms/TheContactBanner";
 // Content
-import { timeline as allTimeline } from '../content/timeline'
-import type { TimelineItem as ITimelineItem } from '../types/timeline'
+import { timeline as allTimeline } from "../content/timeline";
+import type { TimelineItem as ITimelineItem } from "../types/timeline";
 
 interface Props {
-  timeline: IITimelineItem[]
+  timeline: IITimelineItem[];
 }
 
 const Socials: NextPage<Props> = ({ timeline }) => {
@@ -36,10 +36,10 @@ const Socials: NextPage<Props> = ({ timeline }) => {
 
       <TheContactBanner />
     </div>
-  )
-}
+  );
+};
 
-export default Socials
+export default Socials;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const timeline = allTimeline.map(
@@ -47,18 +47,21 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       const _t: IITimelineItem = Object.assign<
         ITimelineItem,
         Partial<IITimelineItem>
-      >(t, {})
+      >(t, {});
 
-      t.description && (_t.description = await serialize(t.description))
-      _t.title = await serialize(t.title)
+      if (t.description) {
+        _t.description = await serialize(t.description);
+      }
 
-      return _t
+      _t.title = await serialize(t.title);
+
+      return _t;
     },
-  )
+  );
 
   return {
     props: {
       timeline: await Promise.all(timeline),
     },
-  }
-}
+  };
+};

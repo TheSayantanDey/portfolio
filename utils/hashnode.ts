@@ -1,11 +1,11 @@
-import { gql, GraphQLClient } from 'graphql-request'
-import { getPlaiceholder } from 'plaiceholder'
+import { gql, GraphQLClient } from "graphql-request";
+import { getPlaiceholder } from "plaiceholder";
 
-import { type Post, type User } from '../types/hashnode'
+import { type Post, type User } from "../types/hashnode";
 
-export const API_URL = 'https://gql.hashnode.com/'
+export const API_URL = "https://gql.hashnode.com/";
 
-export const CLIENT = new GraphQLClient(API_URL)
+export const CLIENT = new GraphQLClient(API_URL);
 
 const PUBLICATION_LIST_QUERY = gql`
   query Publications($username: String!, $page: Int!, $pageSize: Int!) {
@@ -25,7 +25,7 @@ const PUBLICATION_LIST_QUERY = gql`
       }
     }
   }
-`
+`;
 
 const PUBLICATION_QUERY = gql`
   query Publication($id: ID!) {
@@ -41,7 +41,7 @@ const PUBLICATION_QUERY = gql`
       publishedAt
     }
   }
-`
+`;
 
 export const getUserPosts = async (
   username: string,
@@ -51,20 +51,20 @@ export const getUserPosts = async (
     username,
     page: page ?? 1,
     pageSize: 10,
-  })
+  });
 
-  return data.user.posts.nodes
-}
+  return data.user.posts.nodes;
+};
 
 export const getPost = async (id: string): Promise<Post> => {
   const data = await CLIENT.request<{ post: Post }>(PUBLICATION_QUERY, {
     id,
-  })
+  });
 
   const plaiceholder =
     data.post.coverImage && data.post.coverImage.url
       ? await getPlaiceholder(data.post.coverImage.url)
-      : null
+      : null;
 
   return {
     ...data.post,
@@ -73,5 +73,5 @@ export const getPost = async (id: string): Promise<Post> => {
       base64: plaiceholder?.base64 ?? null,
       blurhash: plaiceholder?.base64 ?? null,
     },
-  }
-}
+  };
+};

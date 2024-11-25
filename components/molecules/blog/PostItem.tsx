@@ -1,24 +1,24 @@
-import Image from 'next/image'
-import { FC, useMemo } from 'react'
-import Balancer from 'react-wrap-balancer'
-import tw, { styled } from 'twin.macro'
+import Image from "next/image";
+import { FC, useMemo } from "react";
+import Balancer from "react-wrap-balancer";
+import tw, { styled } from "twin.macro";
 
-import type { Post } from '../../../types/hashnode'
+import type { Post } from "../../../types/hashnode";
 
 interface Props {
-  id?: string
-  className?: string
-  post: Post
+  id?: string;
+  className?: string;
+  post: Post;
 }
 
 const PostContainer = styled.article([
   tw`relative flex flex-col-reverse md:flex-row py-4 px-6 gap-4 border rounded-lg shadow-lg`,
   tw`transition-colors duration-300`,
   tw`bg-white dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 focus-within:ring ring-offset-2`,
-])
+]);
 
 const PostItem: FC<Props> = ({ post, ...props }) => {
-  const datePosted = useMemo(() => new Date(post.publishedAt), [post])
+  const datePosted = useMemo(() => new Date(post.publishedAt), [post]);
 
   return (
     <PostContainer {...props}>
@@ -32,9 +32,9 @@ const PostItem: FC<Props> = ({ post, ...props }) => {
             dateTime={post.publishedAt}
           >
             {datePosted.toLocaleDateString(undefined, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </time>
         </div>
@@ -53,8 +53,8 @@ const PostItem: FC<Props> = ({ post, ...props }) => {
             blurDataURL={post.coverImage.base64!}
             sizes="100vw"
             style={{
-              width: '100%',
-              height: 'auto',
+              width: "100%",
+              height: "auto",
             }}
           />
           <figcaption className="hidden">{post.title}</figcaption>
@@ -68,7 +68,7 @@ const PostItem: FC<Props> = ({ post, ...props }) => {
         aria-label={post.title}
       />
     </PostContainer>
-  )
-}
+  );
+};
 
-export default PostItem
+export default PostItem;

@@ -1,14 +1,14 @@
-import React, { type FC } from 'react'
+import React, { type FC } from "react";
 
-import SectionHeader from '../../../molecules/SectionHeader'
-import type { TimelineItem as ITimelineItem } from '../../../molecules/timeline/TimelineItem'
-import TimelineItem from '../../../molecules/timeline/TimelineItem'
+import SectionHeader from "../../../molecules/SectionHeader";
+import type { TimelineItem as ITimelineItem } from "../../../molecules/timeline/TimelineItem";
+import TimelineItem from "../../../molecules/timeline/TimelineItem";
 
 interface Props {
-  timeline: ITimelineItem[]
+  timeline: ITimelineItem[];
 }
 
-const HomeTimeline: FC<Props & JSX.IntrinsicElements['section']> = ({
+const HomeTimeline: FC<Props & JSX.IntrinsicElements["section"]> = ({
   timeline,
   ...props
 }) => (
@@ -21,6 +21,6 @@ const HomeTimeline: FC<Props & JSX.IntrinsicElements['section']> = ({
       ))}
     </div>
   </section>
-)
+);
 
-export default HomeTimeline
+export default HomeTimeline;

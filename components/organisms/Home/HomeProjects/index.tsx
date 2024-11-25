@@ -1,16 +1,16 @@
-import 'twin.macro'
+import "twin.macro";
 
-import React, { type FC } from 'react'
+import React, { type FC } from "react";
 
-import type { Project } from '../../../../types/project'
-import ProjectCard from '../../../molecules/projects/ProjectCard'
-import SectionHeader from '../../../molecules/SectionHeader'
+import type { Project } from "../../../../types/project";
+import ProjectCard from "../../../molecules/projects/ProjectCard";
+import SectionHeader from "../../../molecules/SectionHeader";
 
 interface Props {
-  projects: Project[]
+  projects: Project[];
 }
 
-const HomeProjects: FC<Props & JSX.IntrinsicElements['section']> = ({
+const HomeProjects: FC<Props & JSX.IntrinsicElements["section"]> = ({
   projects,
   ...props
 }) => (
@@ -23,6 +23,6 @@ const HomeProjects: FC<Props & JSX.IntrinsicElements['section']> = ({
       ))}
     </div>
   </section>
-)
+);
 
-export default HomeProjects
+export default HomeProjects;

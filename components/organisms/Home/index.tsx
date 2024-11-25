@@ -1,9 +1,9 @@
-import HomeBlog from './HomeBlog'
-import HomeIntro from './HomeIntro'
-import HomeLife from './HomeLife'
-import HomeProjects from './HomeProjects'
-import HomeSocials from './HomeSocials'
-import HomeTimeline from './HomeTimeline'
+import HomeBlog from "./HomeBlog";
+import HomeIntro from "./HomeIntro";
+import HomeLife from "./HomeLife";
+import HomeProjects from "./HomeProjects";
+import HomeSocials from "./HomeSocials";
+import HomeTimeline from "./HomeTimeline";
 
 export {
   HomeBlog,
@@ -12,4 +12,4 @@ export {
   HomeProjects,
   HomeSocials,
   HomeTimeline,
-}
+};

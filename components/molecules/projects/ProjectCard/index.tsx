@@ -1,19 +1,19 @@
-import 'twin.macro'
+import "twin.macro";
 
-import { Icon } from '@iconify/react'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import { Icon } from "@iconify/react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-import Tag from '@/components/atoms/Tag'
+import Tag from "@/components/atoms/Tag";
 
-import type { Project } from '../../../../types/project'
+import type { Project } from "../../../../types/project";
 
 interface Props {
-  project: Project
+  project: Project;
 }
 
-const ProjectCard: React.FC<Props & JSX.IntrinsicElements['article']> = ({
+const ProjectCard: React.FC<Props & JSX.IntrinsicElements["article"]> = ({
   project,
   ...props
 }) => (
@@ -35,8 +35,8 @@ const ProjectCard: React.FC<Props & JSX.IntrinsicElements['article']> = ({
           tw="size-16 rounded"
           alt={project.title}
           style={{
-            maxWidth: '100%',
-            height: 'auto',
+            maxWidth: "100%",
+            height: "auto",
           }}
         />
       ) : (
@@ -66,9 +66,9 @@ const ProjectCard: React.FC<Props & JSX.IntrinsicElements['article']> = ({
         >
           {project.displayUrl ||
             project.url
-              ?.replace(/^https?:\/\//, '')
-              .split('?')[0]
-              .replace(/^[\\/]+|[\\/]+$/g, '')}
+              ?.replace(/^https?:\/\//, "")
+              .split("?")[0]
+              .replace(/^[\\/]+|[\\/]+$/g, "")}
         </a>
 
         <span
@@ -82,7 +82,7 @@ const ProjectCard: React.FC<Props & JSX.IntrinsicElements['article']> = ({
     </div>
     {project.isExternalUrl && (
       <div tw="text-gray-500">
-        <Icon icon={'heroicons-outline:external-link'} tw="size-6" />
+        <Icon icon={"heroicons-outline:external-link"} tw="size-6" />
       </div>
     )}
     {project.pin && (
@@ -121,6 +121,6 @@ const ProjectCard: React.FC<Props & JSX.IntrinsicElements['article']> = ({
       ></Link>
     )}
   </article>
-)
+);
 
-export default ProjectCard
+export default ProjectCard;

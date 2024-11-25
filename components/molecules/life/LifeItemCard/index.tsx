@@ -1,22 +1,22 @@
-import { Icon } from '@iconify/react'
-import Link from 'next/link'
-import React from 'react'
-import tw, { styled } from 'twin.macro'
+import { Icon } from "@iconify/react";
+import Link from "next/link";
+import React from "react";
+import tw, { styled } from "twin.macro";
 
 interface Props {
-  icon: string
-  color: string
-  label: string
-  href: string
-  className?: string
+  icon: string;
+  color: string;
+  label: string;
+  href: string;
+  className?: string;
 }
 
 const IconWrapper = styled.div<{ color: string }>(({ color }) => [
   tw`p-3 rounded ring-2`,
   tw`ring-white dark:ring-gray-900 dark:group-hover:ring-gray-700`,
-  color === 'indigo' &&
+  color === "indigo" &&
     tw`bg-indigo-50 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-200`,
-])
+]);
 
 const LifeItemCard: React.FC<Props> = ({
   icon,
@@ -36,6 +36,6 @@ const LifeItemCard: React.FC<Props> = ({
     </div>
     <h3 className="text-lg">{label}</h3>
   </Link>
-)
+);
 
-export default LifeItemCard
+export default LifeItemCard;

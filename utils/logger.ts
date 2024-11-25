@@ -1,11 +1,11 @@
-import winston from 'winston'
+import winston from "winston";
 
-const { combine, timestamp, json } = winston.format
+const { combine, timestamp, json } = winston.format;
 
 const logger = winston.createLogger({
-  level: 'info',
+  level: "info",
   format: combine(timestamp(), json()),
   transports: [new winston.transports.Console()],
-})
+});
 
-export { logger }
+export { logger };

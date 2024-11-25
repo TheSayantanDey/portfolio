@@ -1,16 +1,16 @@
-import 'twin.macro'
+import "twin.macro";
 
-import React, { type FC } from 'react'
+import React, { type FC } from "react";
 
-import type { SocialAccount } from '../../../../types/social-account'
-import SectionHeader from '../../../molecules/SectionHeader'
-import SocialTile from '../../../molecules/socials/SocialTile'
+import type { SocialAccount } from "../../../../types/social-account";
+import SectionHeader from "../../../molecules/SectionHeader";
+import SocialTile from "../../../molecules/socials/SocialTile";
 
 interface Props {
-  socials: SocialAccount[]
+  socials: SocialAccount[];
 }
 
-const HomeSocials: FC<Props & JSX.IntrinsicElements['section']> = ({
+const HomeSocials: FC<Props & JSX.IntrinsicElements["section"]> = ({
   socials,
   ...props
 }) => (
@@ -23,6 +23,6 @@ const HomeSocials: FC<Props & JSX.IntrinsicElements['section']> = ({
       ))}
     </div>
   </section>
-)
+);
 
-export default HomeSocials
+export default HomeSocials;

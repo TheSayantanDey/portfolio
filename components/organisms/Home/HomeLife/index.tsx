@@ -1,20 +1,20 @@
-import React from 'react'
+import React from "react";
 
-import LifeItemCard from '../../../molecules/life/LifeItemCard'
-import SectionHeader from '../../../molecules/SectionHeader'
+import LifeItemCard from "../../../molecules/life/LifeItemCard";
+import SectionHeader from "../../../molecules/SectionHeader";
 
 interface LifeItem {
-  icon: string
-  color: string
-  label: string
-  href: string
+  icon: string;
+  color: string;
+  label: string;
+  href: string;
 }
 
 interface Props {
-  items: [LifeItem, LifeItem, LifeItem]
+  items: [LifeItem, LifeItem, LifeItem];
 
-  id?: string
-  className?: string
+  id?: string;
+  className?: string;
 }
 
 const HomeLife: React.FC<Props> = ({ items, id, className }) => (
@@ -27,6 +27,6 @@ const HomeLife: React.FC<Props> = ({ items, id, className }) => (
       ))}
     </div>
   </article>
-)
+);
 
-export default HomeLife
+export default HomeLife;

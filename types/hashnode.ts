@@ -1,19 +1,19 @@
 export interface User {
-  posts: { nodes: Post[] }
+  posts: { nodes: Post[] };
 }
 
 export interface Post {
-  id: string
-  slug: string
-  title: string
-  brief: string
+  id: string;
+  slug: string;
+  title: string;
+  brief: string;
 
-  publishedAt: string
-  coverImage?: PostCoverImage
+  publishedAt: string;
+  coverImage?: PostCoverImage;
 }
 
 export interface PostCoverImage {
-  url?: string
-  base64?: string | null
-  blurhash: any
+  url?: string;
+  base64?: string | null;
+  blurhash: any;
 }

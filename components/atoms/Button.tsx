@@ -1,41 +1,40 @@
-import Link from 'next/link'
+import Link from "next/link";
 import React, {
   type ComponentProps,
   type ForwardedRef,
   forwardRef,
-} from 'react'
-import tw, { css, theme } from 'twin.macro'
+} from "react";
+import tw, { css, theme } from "twin.macro";
 
-export type Color = 'default' | 'primary'
-export type Variant = 'solid' | 'outline' | 'ghost'
+export type Color = "default" | "primary";
+export type Variant = "solid" | "outline" | "ghost";
 
-type ButtonProps = Omit<JSX.IntrinsicElements['button'], 'ref'>
-type LinkProps = Omit<ComponentProps<typeof Link>, 'ref'>
-type BaseProps = ButtonProps | LinkProps
+type ButtonProps = Omit<JSX.IntrinsicElements["button"], "ref">;
+type LinkProps = Omit<ComponentProps<typeof Link>, "ref">;
+type BaseProps = ButtonProps | LinkProps;
 
 export type Props = BaseProps & {
   /**
    * @default 'default'
    */
-  color?: Color
+  // color?: Color;
 
   /**
    * @default 'solid'
    */
-  variant?: Variant
-}
+  variant?: Variant;
+};
 
 const isLink = (props: BaseProps): props is LinkProps => {
-  return 'href' in props
-}
+  return "href" in props;
+};
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
-  ({ color = 'default', variant = 'solid', ...props }, ref) => {
+  ({ ...props }, ref) => {
     const styles = [
       css`
-        --color: ${theme('colors.gray.200')};
-        --color-hover: ${theme('colors.gray.300')};
-        --color-disabled: ${theme('colors.gray.100')};
+        --color-hover: ${theme("colors.gray.300")};
+        --color-disabled: ${theme("colors.gray.100")};
       `,
       tw`
         rounded-2xl px-4 py-2 ring-offset-2 bg-[--color]
@@ -44,7 +43,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         focus:(outline-none ring)
         disabled:(cursor-not-allowed bg-[--color-disabled])
       `,
-    ]
+    ];
 
     return isLink(props) ? (
       <Link
@@ -58,10 +57,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         css={styles}
         ref={ref as ForwardedRef<HTMLButtonElement>}
       />
-    )
+    );
   },
-)
+);
 
-Button.displayName = 'Button'
+Button.displayName = "Button";
 
-export default Button
+export default Button;

@@ -1,15 +1,15 @@
 export interface Project {
-  slug: string
-  title: string
-  description?: string
-  category: string
-  tags?: string[]
-  logo?: string
+  slug: string;
+  title: string;
+  description?: string;
+  category: string;
+  tags?: string[];
+  logo?: string;
 
-  url?: string
-  displayUrl?: string
-  isExternalUrl?: boolean
+  url?: string;
+  displayUrl?: string;
+  isExternalUrl?: boolean;
 
-  display?: boolean
-  pin?: true
+  display?: boolean;
+  pin?: true;
 }

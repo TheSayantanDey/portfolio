@@ -1,17 +1,17 @@
 // Components
 // Types
-import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
+import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
-import PageHeader from '../components/molecules/PageHeader'
-import SocialTile from '../components/molecules/socials/SocialTile'
-import TheContactBanner from '../components/organisms/TheContactBanner'
+import PageHeader from "../components/molecules/PageHeader";
+import SocialTile from "../components/molecules/socials/SocialTile";
+import TheContactBanner from "../components/organisms/TheContactBanner";
 // Content
-import allSocials from '../content/socials'
-import type { SocialAccount } from '../types/social-account'
+import allSocials from "../content/socials";
+import type { SocialAccount } from "../types/social-account";
 
 interface Props {
-  socials: SocialAccount[]
+  socials: SocialAccount[];
 }
 
 const Socials: NextPage<Props> = ({ socials }) => {
@@ -33,13 +33,13 @@ const Socials: NextPage<Props> = ({ socials }) => {
 
       <TheContactBanner />
     </div>
-  )
-}
+  );
+};
 
-export default Socials
+export default Socials;
 
 export const getStaticProps: GetStaticProps<Props> = async () => ({
   props: {
     socials: allSocials,
   },
-})
+});

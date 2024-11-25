@@ -1,17 +1,17 @@
 // Components
 // Types
-import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
+import type { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
-import PageHeader from '../../components/molecules/PageHeader'
-import ProjectCard from '../../components/molecules/projects/ProjectCard'
-import TheContactBanner from '../../components/organisms/TheContactBanner'
+import PageHeader from "../../components/molecules/PageHeader";
+import ProjectCard from "../../components/molecules/projects/ProjectCard";
+import TheContactBanner from "../../components/organisms/TheContactBanner";
 // Content
-import allProjects from '../../content/projects'
-import { Project } from '../../types/project'
+import allProjects from "../../content/projects";
+import { Project } from "../../types/project";
 
 interface Props {
-  projects: Project[]
+  projects: Project[];
 }
 
 const Socials: NextPage<Props> = ({ projects }) => {
@@ -37,19 +37,19 @@ const Socials: NextPage<Props> = ({ projects }) => {
 
       <TheContactBanner />
     </div>
-  )
-}
+  );
+};
 
-export default Socials
+export default Socials;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = (allProjects as unknown as Project[]).filter(
     (p) => p.display === undefined || p.display === true,
-  )
+  );
 
   return {
     props: {
       projects,
     },
-  }
-}
+  };
+};

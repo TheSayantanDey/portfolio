@@ -1,18 +1,18 @@
-import 'twin.macro'
+import "twin.macro";
 
-import Image from 'next/image'
+import Image from "next/image";
 // Types
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode } from "react";
 
-import Tag from '@/components/atoms/Tag'
+import Tag from "@/components/atoms/Tag";
 
 interface Props {
-  title: ReactNode
-  category: string
-  tags?: string[]
-  logo?: string
-  url: string
-  displayUrl?: string
+  title: ReactNode;
+  category: string;
+  tags?: string[];
+  logo?: string;
+  url: string;
+  displayUrl?: string;
 }
 
 const ProjectHeader: FC<Props> = ({
@@ -40,8 +40,8 @@ const ProjectHeader: FC<Props> = ({
           tw="mt-0 size-[84px] rounded"
           alt="Project logo"
           style={{
-            maxWidth: '100%',
-            height: 'auto',
+            maxWidth: "100%",
+            height: "auto",
           }}
         />
       ) : (
@@ -61,9 +61,9 @@ const ProjectHeader: FC<Props> = ({
             >
               {displayUrl ||
                 url
-                  ?.replace(/^https?:\/\//, '')
-                  .split('?')[0]
-                  .replace(/^[\\/]+|[\\/]+$/g, '')}
+                  ?.replace(/^https?:\/\//, "")
+                  .split("?")[0]
+                  .replace(/^[\\/]+|[\\/]+$/g, "")}
             </a>
 
             <span
@@ -87,7 +87,7 @@ const ProjectHeader: FC<Props> = ({
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default ProjectHeader
+export default ProjectHeader;

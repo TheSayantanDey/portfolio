@@ -1,18 +1,18 @@
-import { Icon } from '@iconify/react'
-import React from 'react'
-import tw, { styled } from 'twin.macro'
+import { Icon } from "@iconify/react";
+import React from "react";
+import tw, { styled } from "twin.macro";
 
-import type { SocialAccount } from '../../../../types/social-account'
+import type { SocialAccount } from "../../../../types/social-account";
 
 interface Props {
-  social: SocialAccount
-  className?: string
+  social: SocialAccount;
+  className?: string;
 }
 
 const IconWrapper = styled.div([
   tw`p-2 rounded mr-2 w-10 h-10`,
   tw`group-hover:bg-gray-100 dark:group-hover:bg-gray-800`,
-])
+]);
 
 const SocialTile: React.FC<Props> = ({ social, className }) => (
   <a
@@ -36,6 +36,6 @@ const SocialTile: React.FC<Props> = ({ social, className }) => (
       <span className="text-xs">{social.username}</span>
     </div>
   </a>
-)
+);
 
-export default SocialTile
+export default SocialTile;

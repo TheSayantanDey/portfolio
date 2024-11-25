@@ -17,7 +17,7 @@ export type Props = BaseProps & {
   /**
    * @default 'default'
    */
-  // color?: Color;
+  color?: Color;
 
   /**
    * @default 'solid'

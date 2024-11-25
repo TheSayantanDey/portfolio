@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 import Link from "next/link";
 import type { FC } from "react";
 import { useMemo } from "react";
@@ -38,7 +38,7 @@ interface Props {
   socials: SocialAccount[];
 }
 
-const TheFooter: React.FC<Props> = ({ socials }) => (
+const TheFooter: React.FC<Props> = () => (
   <Footer>
     <nav>
       <ul className="flex flex-row flex-wrap justify-center">

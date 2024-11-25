@@ -19,16 +19,12 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
 
           <meta name="twitter:dnt" content="on" />
-          <meta name="twitter:url" content="https://leon0399.ru/" />
+          <meta name="twitter:url" content="https://github.io/thesayantandey" />
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@leon0399" />
-          <meta name="twitter:creator" content="@leon0399" />
+          <meta name="twitter:site" content="@sayantandey" />
+          <meta name="twitter:creator" content="@sayantandey" />
 
-          <script
-            defer
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon='{"token": "0d9f2493fa83432ea75505851fb28a83"}'
-          ></script>
+          
         </Head>
         <body className="bg-white text-black dark:bg-gray-900 dark:text-white">
           <Main />
